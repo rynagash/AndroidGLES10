@@ -42,7 +42,7 @@ public class MySurfaceView extends GLSurfaceView {
             break;
         case MotionEvent.ACTION_MOVE:
             end_time = System.currentTimeMillis();
-            if (end_time - start_time > 20) {
+            if (end_time - start_time > 10) {
                 if (Math.abs(point[0] - prev_point[0]) > 5 || Math.abs(point[1] - prev_point[1]) > 5) {
                     renderer.getLine().addPoint(g_point[0], g_point[1], g_point[1]);
                     start_time = end_time;

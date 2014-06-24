@@ -16,7 +16,7 @@ public class MyRenderer implements Renderer {
     private int viewSize[] = { -1, -1 };
 
     public MyRenderer() {
-        line = new CLine(1024);
+        line = new CLine(1024 * 100);
 
         triangle = new CTriangle();
         triangle.setColor(1.f, 0.f, 0.f, 1.f);
