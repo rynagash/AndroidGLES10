@@ -2,24 +2,35 @@ package com.example.gltest;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
+import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 public class MySurfaceView extends GLSurfaceView {
-    MyRenderer renderer;
-    long start_time, end_time;
-    float prev_point[] = { -1.f, -1.f };
+    private MyRenderer renderer;
+    private long start_time, end_time;
+    private float prev_point[] = { -1.f, -1.f };
 
-    public MySurfaceView(Context context, MyRenderer renderer) {
+    public MySurfaceView(Context context) {
         super(context);
-        this.renderer = renderer;
+        init();
+    }
+
+    public MySurfaceView(Context context, AttributeSet attr) {
+        super(context, attr);
+        init();
+    }
+
+    private void init() {
+        renderer = new MyRenderer();
+        setRenderer(renderer);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
         float point[] = { event.getX(), event.getY() };
         float g_point[] = renderer.convertToGLpoint(point[0], point[1]);
-        System.out.println(prev_point[0] + "-->" + point[0] + ", " + prev_point[1] + "-->" + point[1]);
+        // System.out.println(prev_point[0] + "-->" + point[0] + ", " +
+        // prev_point[1] + "-->" + point[1]);
 
         switch (event.getAction()) {
         case MotionEvent.ACTION_DOWN:

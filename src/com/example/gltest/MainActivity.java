@@ -7,16 +7,13 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity {
 
-    private MySurfaceView view;
-    private MyRenderer renderer;
+    private MySurfaceView view = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        renderer = new MyRenderer();
-        view = new MySurfaceView(this, renderer);
-        view.setRenderer(renderer);
+        view = new MySurfaceView(this);
         setContentView(view);
     }
 
@@ -40,4 +37,19 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (view != null) {
+            view.onResume();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (view != null) {
+            view.onPause();
+        }
+    }
 }

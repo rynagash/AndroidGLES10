@@ -58,18 +58,6 @@ public class MyRenderer implements Renderer {
         gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 
-//        //@formatter:off
-//        float points[] = {
-//                         0.f,           0.f,
-//                (float)width,           0.f,
-//                (float)width, (float)height,
-//        };
-//        //@formatter:on
-        // for (int i = 0; i < points.length; i += 2) {
-        // float point[] = convertToGLpoint(points[i], points[i + 1]);
-        // line0.addPoint(point[0], point[1], point[2]);
-        // }
-
     }
 
     @Override
